@@ -1,0 +1,3 @@
+rootProject.name = 'tech_stack_redux_sample'
+
+include ':app'
