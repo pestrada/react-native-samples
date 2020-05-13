@@ -4,7 +4,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { HomeScreen } from './HomeScreen';
-import { ProductsScreen } from "./mvp/ProductsScreen";
+import { ProductsScreen } from "./products/ProductsScreen";
 
 const Stack = createStackNavigator();
 
