@@ -1,3 +1,5 @@
+import { Product } from "./Product";
+
 export class ProductsRepository {
     static instance = null;
 
@@ -13,12 +15,15 @@ export class ProductsRepository {
         return ProductsRepository.instance;
     }
 
-    create = (product) => {
-        if (!product) return false;
+    create = (productName) => {
+        if (!productName) return false;
         this.id++;
+        const product = new Product(this.id, productName);
         this.data.set(this.id, product);
         return true;
     }
+
+    findAll = () => Array.from(this.data.values());
 
     find = (id) => {
         if (!id) return false;

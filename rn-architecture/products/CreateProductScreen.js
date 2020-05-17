@@ -2,18 +2,17 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
 import { TextInput } from 'react-native-gesture-handler';
 import { ProductsRepository } from './ProductsRepository';
-import { Product } from './Product';
 
-export const CreateProductScreen = ({ navigation }) => {
+export const CreateProductScreen = ({ route, navigation }) => {
     const [productName, setProductName] = useState('');
     const repository = ProductsRepository.getInstance();
 
     onTextChanged = (text) => setProductName(text);
 
     saveProduct = () => {
-        const product = new Product(productName);
-        const created = repository.create(product);
+        const created = repository.create(productName);
         if (created) {
+            route.params.refresh();
             navigation.goBack();
         }
     }

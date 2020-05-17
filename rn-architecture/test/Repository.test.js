@@ -17,8 +17,9 @@ test('given a product, create() returns true', () => {
 })
 
 test('given a product id, find(id) returns the product', () => {
-    let product = new Product(1, "a product");
-    repository.create(product);
+    let productName = "a product";
+    let product = new Product(1, productName);
+    repository.create(productName);
 
     expect(repository.find(product.id)).toEqual(product);
 })
