@@ -2,9 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
 
 export const HomeScreen = ({ navigation }) => {
-    const openProducts = () => {
-        navigation.navigate('Products')
-    }
+    const openProducts = () => navigation.navigate('Products');
 
     return (
         <View style={styles.container}>
