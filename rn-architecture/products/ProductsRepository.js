@@ -1,12 +1,22 @@
 export class ProductsRepository {
+    static instance = null;
 
     constructor() {
+        this.id = 0;
         this.data = new Map();
+    }
+
+    static getInstance = () => {
+        if (!ProductsRepository.instance) {
+            ProductsRepository.instance = new ProductsRepository();
+        }
+        return ProductsRepository.instance;
     }
 
     create = (product) => {
         if (!product) return false;
-        this.data.set(product.id, product);
+        this.id++;
+        this.data.set(this.id, product);
         return true;
     }
 
@@ -26,6 +36,8 @@ export class ProductsRepository {
     delete = (id) => {
         if (!id) return false;
         if (!this.data.has(id)) return false;
-        return this.data.delete(id);
+        this.data.delete(id);
+        this.id--;
+        return true;
     }
 }
